@@ -25,13 +25,13 @@ test.describe('ZT-3: User logs in with valid credentials and remembers login', (
     // Expected: Password field shows masked characters, login button becomes enabled
     await page.fill('#password', 'SecurePass123!');
     // Step 4: Check the 'Remember me' checkbox
-    // Expected: Checkbox is checked, a message indicates that login will be remembered
+    // Expected: Checkbox is checked, indicating that login will be remembered
     // TODO: Add specific assertion
     // Step 5: Click the login button
     // Expected: User is redirected to dashboard page, welcome message displays with user's name
     await page.click('button');
     // Step 6: Close the browser and reopen it
-    // Expected: User is still logged in, dashboard page loads directly
+    // Expected: User is still logged in, dashboard page loads automatically
     await page.goto(baseUrl);
   });
 });
