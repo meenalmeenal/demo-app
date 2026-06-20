@@ -19,10 +19,10 @@ test.describe('ZT-PR2: User attempts to reset password with minimum length passw
     await page.click('a');
     // Step 2: Enter minimum length password (8 characters) in the new password field
     // Expected: New password field is populated with the entered password
-    await page.fill('#password', 'SecureP12');
+    await page.fill('#password', 'Pass1234');
     // Step 3: Enter confirm password in the confirm password field
     // Expected: Confirm password field is populated with the entered password
-    await page.fill('#password', 'SecureP12');
+    await page.fill('#password', 'Pass1234');
     // Step 4: Click the 'Reset Password' button
     // Expected: Password is successfully reset, user is redirected to login page
     await page.click('button');
