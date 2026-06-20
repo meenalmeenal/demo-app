@@ -25,5 +25,9 @@ test.describe('ZT-PR2: User attempts to reset password with invalid email addres
     // Step 3: Enter invalid email address in the email field
     // Expected: Error message is displayed, 'Email address not found'
     await page.getByRole('textbox', { name: /email|username/i }).or(page.locator('#username, #email, input[type=email]')).first().fill('invalidemail@example');
+    // Step 4: Click the 'Send Reset Link' button
+    // Expected: Error message is displayed, 'Email address not found'
+    await page.getByRole('button', { name: /Send Reset/i }).or(page.getByRole('link', { name: /Send Reset/i })).first().click();
+    await page.waitForLoadState('domcontentloaded');
   });
 });
