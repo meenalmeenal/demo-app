@@ -18,11 +18,11 @@ test.describe('ZT-PR2: Password reset page field validation', () => {
     // Expected: Password reset page loads with new password and confirm password fields visible
     await page.click('a');
     // Step 2: Leave new password field empty
-    // Expected: Error message is displayed indicating that the new password field is required
-    // Step 3: Enter new password in the new password field
+    // Expected: Error message is displayed, 'Password is required' or similar
+    // Step 3: Enter password in the new password field
     // Expected: New password field is populated with the entered password
-    await page.fill('#password', 'NewSecurePass123!');
+    await page.fill('#password', 'NewPass123!');
     // Step 4: Leave confirm password field empty
-    // Expected: Error message is displayed indicating that the confirm password field is required
+    // Expected: Error message is displayed, 'Confirm password is required' or similar
   });
 });
