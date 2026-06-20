@@ -20,12 +20,14 @@ test.describe('ZT-PR2: User successfully requests a password reset email from th
     await page.goto(baseUrl);
     // Step 2: Click on the 'Forgot Password' link
     // Expected: Password reset page loads with email field visible
-    await page.click('a');
+    await page.getByRole('button', { name: /Forgot Password/i }).or(page.getByRole('link', { name: /Forgot Password/i })).first().click();
+    await page.waitForLoadState('domcontentloaded');
     // Step 3: Enter valid email address in the email field
     // Expected: Email field is populated with the entered email
-    await page.fill('#username', 'testuser@example.com');
+    await page.getByRole('textbox', { name: /email|username/i }).or(page.locator('#username, #email, input[type=email]')).first().fill('testuser@example.com');
     // Step 4: Click the 'Send Reset Link' button
     // Expected: Password reset email is sent to the user's email address, success message is displayed
-    await page.click('button');
+    await page.getByRole('button', { name: /Send Reset/i }).or(page.getByRole('link', { name: /Send Reset/i })).first().click();
+    await page.waitForLoadState('domcontentloaded');
   });
 });
