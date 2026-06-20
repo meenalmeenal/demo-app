@@ -4,7 +4,6 @@ function requestPasswordReset(email) {
   if (!email) {
     throw new Error('Email is required');
   }
-  // Simulate sending reset email
   return { success: true, message: 'Reset link sent to ' + email };
 }
 
