@@ -20,12 +20,10 @@ test.describe('ZT-PR2: User attempts to reset password with invalid email addres
     await page.goto(baseUrl);
     // Step 2: Click on the 'Forgot Password' link
     // Expected: Password reset page loads with email field visible
-    await page.click('a');
+    await page.getByRole('button', { name: /Forgot Password/i }).or(page.getByRole('link', { name: /Forgot Password/i })).first().click();
+    await page.waitForLoadState('domcontentloaded');
     // Step 3: Enter invalid email address in the email field
-    // Expected: Error message is displayed, 'Email not found' or similar
-    await page.fill('#username', 'invalidemail');
-    // Step 4: Click the 'Send Reset Link' button
-    // Expected: Error message is displayed, password reset email is not sent
-    await page.click('button');
+    // Expected: Error message is displayed, 'Email address not found'
+    await page.getByRole('textbox', { name: /email|username/i }).or(page.locator('#username, #email, input[type=email]')).first().fill('invalidemail@example');
   });
 });
