@@ -20,10 +20,10 @@ test.describe('ZT-PR2: User attempts to reset password with minimum length passw
     await page.waitForLoadState('domcontentloaded');
     // Step 2: Enter minimum length password (8 characters) in the new password field
     // Expected: New password field is populated with the entered password
-    await page.getByRole('textbox', { name: /password/i }).or(page.locator('#password, input[type=password]')).first().fill('SecureP12');
+    await page.getByRole('textbox', { name: /password/i }).or(page.locator('#password, input[type=password]')).first().fill('Secure123');
     // Step 3: Enter confirm password in the confirm password field
     // Expected: Confirm password field is populated with the entered password
-    await page.getByRole('textbox', { name: /password/i }).or(page.locator('#password, input[type=password]')).first().fill('SecureP12');
+    await page.getByRole('textbox', { name: /password/i }).or(page.locator('#password, input[type=password]')).first().fill('Secure123');
     // Step 4: Click the 'Reset Password' button
     // Expected: Password is successfully reset, user is redirected to login page
     await page.getByRole('button', { name: /Reset Password/i }).or(page.getByRole('link', { name: /Reset Password/i })).first().click();
