@@ -10,11 +10,11 @@ test.describe('ZT-PR2: User successfully resets password using the reset link', 
   test.beforeEach(async ({ page }) => {
     await page.goto(baseUrl);
     // Precondition: User has received the password reset email
-    // Precondition: User is on the password reset page
+    // Precondition: Reset link is valid (less than 24 hours old)
   });
 
   test('User successfully resets password using the reset link', async ({ page }) => {
-    // Step 1: Click on the password reset link from the email
+    // Step 1: Click on the reset link in the email
     // Expected: Password reset page loads with new password and confirm password fields visible
     await page.click('a');
     // Step 2: Enter new password in the new password field
