@@ -22,8 +22,8 @@ test.describe('ZT-PR2: User attempts to reset password with invalid email addres
     // Expected: Password reset page loads with email field visible
     await page.click('a');
     // Step 3: Enter invalid email address in the email field
-    // Expected: Email field is populated with the entered email
-    await page.fill('#username', 'invalidemail@example');
+    // Expected: Error message is displayed indicating that the email address is not found
+    await page.fill('#username', 'invalidemail');
     // Step 4: Click the 'Send Reset Link' button
     // Expected: Error message is displayed, password reset email is not sent
     await page.click('button');
