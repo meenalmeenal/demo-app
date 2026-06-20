@@ -18,14 +18,14 @@ test.describe('ZT-3: User attempts to log in with invalid email address', () => 
     // Step 1: Navigate to the login page
     // Expected: Login page loads successfully with email and password fields visible
     await page.goto(baseUrl);
-    // Step 2: Enter an invalid email address in the email field
-    // Expected: Email field is populated with the entered email, but an error message is displayed
+    // Step 2: Enter invalid email address in the email field
+    // Expected: Email field is populated with the entered email, but login button remains disabled
     await page.fill('#username', 'invalidemail');
-    // Step 3: Enter a valid password in the password field
-    // Expected: Password field shows masked characters, but login button remains disabled
+    // Step 3: Enter valid password in the password field
+    // Expected: Password field shows masked characters, but login button remains disabled due to invalid email
     await page.fill('#password', 'SecurePass123!');
     // Step 4: Click the login button
-    // Expected: An error message is displayed indicating that the email address is invalid, login fails
+    // Expected: Error message is displayed, indicating that email address is invalid
     await page.click('button');
   });
 });
